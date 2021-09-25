@@ -1,24 +1,26 @@
 {
-  "name": "table-column-slider",
-  "version": "0.0.1",
+  "name": "column-resize",
+  "version": "0.1.0",
   "description": "",
   "main": "./build/main.js",
   "scripts": {
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.js",
+    "watch": "node ./scripts/build.js watch"
   },
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/boarwell/table-column-slider.git"
+    "url": "git+ssh://git@github.com/boarwell/column-resize.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/boarwell/table-column-slider/issues"
+    "url": "https://github.com/boarwell/column-resize/issues"
   },
-  "homepage": "https://github.com/boarwell/table-column-slider#readme",
+  "homepage": "https://github.com/boarwell/column-resize#readme",
   "devDependencies": {
+    "@types/node": "^16.10.1",
     "esbuild": "^0.13.2",
     "typescript": "^4.4.3"
   }
