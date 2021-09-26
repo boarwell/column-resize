@@ -94,9 +94,7 @@ function setColWidth(delta: number): void {
 
 function mouseMoveHandler(e: MouseEvent): void {
   e.preventDefault();
-  console.log("mousemove");
   const delta = e.clientX - startPoint.x;
-  console.log(`delta: {x: ${delta}}`);
   setColWidth(delta);
 }
 
@@ -122,8 +120,6 @@ export function createSliderNob(borderWidth: number): HTMLDivElement {
   div.style.setProperty("--border-width", `${borderWidth}px`);
 
   div.addEventListener("pointerdown", (e) => {
-    console.log("pointerdown");
-    console.log(e);
     startPoint.x = e.clientX;
     startPoint.y = e.clientY;
     const parentCell = div.closest("th, td");
@@ -145,7 +141,6 @@ export function createSliderNob(borderWidth: number): HTMLDivElement {
     document.addEventListener(
       "pointerup",
       () => {
-        console.log("pointerup");
         document.removeEventListener("mousemove", mouseMoveHandler);
 
         const table = div.closest("table");

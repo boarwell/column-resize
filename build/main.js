@@ -70,9 +70,7 @@ function setColWidth(delta) {
 }
 function mouseMoveHandler(e) {
   e.preventDefault();
-  console.log("mousemove");
   const delta = e.clientX - startPoint.x;
-  console.log(`delta: {x: ${delta}}`);
   setColWidth(delta);
 }
 function insertColGroup(table) {
@@ -92,8 +90,6 @@ function createSliderNob(borderWidth) {
   div.classList.add("table-column-slider");
   div.style.setProperty("--border-width", `${borderWidth}px`);
   div.addEventListener("pointerdown", (e) => {
-    console.log("pointerdown");
-    console.log(e);
     startPoint.x = e.clientX;
     startPoint.y = e.clientY;
     const parentCell = div.closest("th, td");
@@ -111,7 +107,6 @@ function createSliderNob(borderWidth) {
     currentColIndex = colIndex;
     document.addEventListener("mousemove", mouseMoveHandler);
     document.addEventListener("pointerup", () => {
-      console.log("pointerup");
       document.removeEventListener("mousemove", mouseMoveHandler);
       const table = div.closest("table");
       if (table === null || currentColIndex === null) {
