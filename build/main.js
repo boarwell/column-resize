@@ -12,14 +12,6 @@ function getFirstRow(table) {
 function getCells(row) {
   return [...row.querySelectorAll("th, td")];
 }
-function getEditableCells(table) {
-  const extractCells = (tr) => {
-    const cells = tr.querySelectorAll("th, td");
-    return [...cells].slice(0, cells.length - 1);
-  };
-  const firstRow = getFirstRow(table);
-  return extractCells(firstRow);
-}
 var BAR_WIDTH = 10;
 function createSliderStyle() {
   const style = document.createElement("style");
@@ -141,8 +133,8 @@ function main() {
     return;
   }
   for (const table of tables) {
-    const targetCells = getEditableCells(table);
-    for (const cell of targetCells) {
+    const firstRow = getFirstRow(table);
+    for (const cell of getCells(firstRow)) {
       const borderRightWidth = calcBorderRightWidth(cell);
       const nob = createSliderNob(borderRightWidth);
       cell.appendChild(nob);

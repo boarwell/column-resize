@@ -9,6 +9,5 @@ await build({
   format: "esm",
   outdir: "./build",
   platform: "browser",
-  sourcemap: "external",
   watch,
 });

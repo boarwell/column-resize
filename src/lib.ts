@@ -2,7 +2,7 @@ export function getTables(): HTMLTableElement[] {
   return [...document.querySelectorAll<HTMLTableElement>("table")];
 }
 
-function getFirstRow(table: HTMLTableElement): HTMLTableRowElement {
+export function getFirstRow(table: HTMLTableElement): HTMLTableRowElement {
   const tr = table.querySelector("tr");
   if (tr == null) {
     throw new Error("table doesn't have any tr");
@@ -11,22 +11,8 @@ function getFirstRow(table: HTMLTableElement): HTMLTableRowElement {
   return tr;
 }
 
-function getCells(row: HTMLTableRowElement): HTMLTableCellElement[] {
+export function getCells(row: HTMLTableRowElement): HTMLTableCellElement[] {
   return [...row.querySelectorAll<HTMLTableCellElement>("th, td")];
-}
-
-export function getEditableCells(
-  table: HTMLTableElement
-): HTMLTableCellElement[] {
-  const extractCells = (tr: HTMLTableRowElement): HTMLTableCellElement[] => {
-    const cells = tr.querySelectorAll<HTMLTableCellElement>("th, td");
-    return [...cells].slice(0, cells.length - 1);
-  };
-
-  // ==========================================================================
-
-  const firstRow = getFirstRow(table);
-  return extractCells(firstRow);
 }
 
 const BAR_WIDTH = 10;

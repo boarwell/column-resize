@@ -1,12 +1,13 @@
 import {
   getTables,
-  getEditableCells,
   setCellStyle,
   createSliderStyle,
   insertColGroup,
   createSliderNob,
   calcBorderRightWidth,
   setOriginalWidth,
+  getFirstRow,
+  getCells,
 } from "./lib.js";
 
 function main() {
@@ -17,9 +18,9 @@ function main() {
   }
 
   for (const table of tables) {
-    const targetCells = getEditableCells(table);
+    const firstRow = getFirstRow(table);
 
-    for (const cell of targetCells) {
+    for (const cell of getCells(firstRow)) {
       const borderRightWidth = calcBorderRightWidth(cell);
       const nob = createSliderNob(borderRightWidth);
       cell.appendChild(nob);
